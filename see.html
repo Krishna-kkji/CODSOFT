@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Calculator</title>
+    <style>
+        /* Basic styling for the calculator */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .calculator {
+            width: 300px;
+            margin: 0 auto;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator-screen {
+            height: 60px;
+            background-color: #222;
+            color: #fff;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px;
+        }
+
+        .calculator-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .calculator-keys button {
+            padding: 20px;
+            font-size: 18px;
+
+            outline: none;
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+
+        /* Style the operator buttons differently */
+        .calculator-keys button.operator {
+            background-color: #ff9500;
+            color: #fff;
+        }
+
+        /* Style the equal button */
+        .calculator-keys button.equal {
+            background-color: #3fd72b;
+            color: #fff;
+            grid-column: span 2;
+        }
+
+        /* Style the clear button */
+        .calculator-keys button.clear {
+            background-color: #f34e4e;
+            color: #fff;
+        }
+
+        /* Style the decimal button */
+        .calculator-keys button.decimal {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Style the number buttons */
+        .calculator-keys button:not(.operator):not(.equal):not(.clear):not(.decimal) {
+            background-color: #d4d4d2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="calculator">
+        <div class="calculator-screen" id="display">0</div>
+        <div class="calculator-keys">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="off" onclick="turnOff()">Off</button>
+            <button class="repeat" onclick="repeatOperation()">Re</button>
+            <button class="operator" onclick="appendOperator('+')">+</button>
+            <button class="number" onclick="appendToDisplay('9')">9</button>
+            <button class="number" onclick="appendToDisplay('8')">8</button>
+            <button class="number" onclick="appendToDisplay('7')">7</button>
+            <button class="operator" onclick="appendOperator('-')">-</button>
+            <button class="number" onclick="appendToDisplay('6')">6</button>
+            <button class="number" onclick="appendToDisplay('5')">5</button>
+            <button class="number" onclick="appendToDisplay('4')">4</button>
+            <button class="operator" onclick="appendOperator('*')">*</button>
+            <button class="number" onclick="appendToDisplay('3')">3</button>
+            <button class="number" onclick="appendToDisplay('2')">2</button>
+            <button class="number" onclick="appendToDisplay('1')">1</button>
+            <button class="operator" onclick="appendOperator('/')">/</button>
+            <button class="decimal" onclick="appendToDisplay('.')">.</button>
+            <button class="number" onclick="appendToDisplay('0')">0</button>
+            <button class="equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = '';
+        let currentOperator = '';
+        let firstOperand = '';
+        let secondOperand = '';
+
+        const display = document.getElementById('display');
+
+        function appendToDisplay(value) {
+            if (currentInput === '0' && value !== '.') {
+                currentInput = value;
+            }
+             else {
+                currentInput += value;
+            }
+            display.textContent = currentInput;
+        }
+
+        function appendOperator(operator) {
+            if (currentOperator !== '') {
+                calculate();
+            }
+            currentOperator = operator;
+            appendToDisplay(operator);
+            firstOperand = currentInput;
+            currentInput = '0';
+        }
+
+        function calculate() {
+            secondOperand = currentInput;
+            if (currentOperator === '+') {
+                currentInput = (parseFloat(firstOperand) + parseFloat(secondOperand)).toString();
+            } else if (currentOperator === '-') {
+                currentInput = (parseFloat(firstOperand) - parseFloat(secondOperand)).toString();
+            } else if (currentOperator === '*') {
+                currentInput = (parseFloat(firstOperand) * parseFloat(secondOperand)).toString();
+            } else if (currentOperator === '/') {
+                if (parseFloat(secondOperand) === 0) {
+                    currentInput = 'Error';
+                } else {
+                    currentInput = (parseFloat(firstOperand) / parseFloat(secondOperand)).toString();
+                }
+            }
+            display.textContent = currentInput;
+            currentOperator = '';
+        }
+
+        function clearDisplay() {
+            currentInput = '0';
+            currentOperator = '';
+            firstOperand = '';
+            secondOperand = '';
+            display.textContent = currentInput;
+        }
+        function turnOff() {
+            currentInput = '0';
+            currentOperator = '';
+            firstOperand = '';
+            secondOperand = '';
+            display.textContent = currentInput;
+        }
+        function repeatOperation() {
+            if (currentOperator && firstOperand){
+                currentInput = '0';
+                display.textContent = currentInput;
+                appendOperator(currentOperator);
+            }
+        }
+    </script>
+</body>
+</html>
