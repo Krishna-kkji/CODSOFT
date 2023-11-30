@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Landing Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background:url('');
+            background-color: #000000;
+        }
+
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/c906271d-7184-4eec-83c9-b6d4c1a068ec/728874a6-eeda-400a-9bcf-a935a1408a4f/IN-en-20231127-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+        .features {
+            text-align: center;
+            padding: 50px 0;
+            color:#f9f9f9
+        }
+
+        .feature {
+            margin: 20px;
+        }
+
+        .testimonials {
+            text-align: center;
+            color:#fff;
+            background-color: #131010;
+            padding: 50px 0;
+        }
+
+        .contact-form {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-media {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#hero">Home</a>
+            <a href="#features">Features</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <h1>START BINGE WATCHING<br>WITH CHILLTIME
+        </h1>
+        <p>Start 15 days free trial Now!</p>
+        <a href="#contact" class="cta-button">Try 15 days free trial</a>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Why Choose us ?</h2>
+        <div class="feature">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="Feature 1">
+            <h3>Enjoy on your TV</h3>
+            <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        </div>
+        <div class="feature">
+            <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="Feature 2">
+            <h3>Download your shows to watch offline</h3>
+            <p>Save your favourites easily and always have something to watch.</p>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2>Frequently Asked Questions</h2>
+        <div class="testimonial">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."</p>
+            <p>- Customer 1</p>
+        </div>
+        <div class="testimonial">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."</p>
+            <p>- Customer 2</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-form">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="3" required></textarea>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social-media">
+            <a href="#" target="_blank"><img src="facebook.png" alt="Facebook"width="25"height="25"></a>
+            <a href="#" target="_blank"><img src="instagram.png" alt="Instagram"width="25"height="25"></a>
+        </div>
+        <p>&copy; 2023 CHILLTIME. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
